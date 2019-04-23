@@ -1,19 +1,24 @@
 <template>
-  <div>
-    <div class="addoffice">
-      <el-input v-model="input3" placeholder="添加科室">
-        <template slot="prepend">
-          <svg-icon icon-class="user" />
-        </template>
-      </el-input>
-    </div>
-    <el-button type="primary">确认添加</el-button>
-    <el-table :data="tableData" style="width: 100%">
-      <el-table-column prop="name" label="科室名称" width="980" />
-      <el-table-column prop="action" label="操作">
-        <template slot-scope="scope">
-          <el-button type="text" size="small" @click="handleClick(scope.row)">删除</el-button>
-        </template>
+  <div id="container">
+    <el-button id="add_dep" type="primary" @click="go()">添加科室</el-button>
+    <el-table
+      :data="tableData"
+      border
+      style="width: 100%"
+    >
+      <el-table-column
+        prop="department_name"
+        label="科室名称"
+      />
+      <el-table-column
+        label="操作"
+        width="180"
+      >
+        <el-button
+          size="mini"
+          type="danger"
+          @click="handleDelete(scope.$index, scope.row)"
+        >删除</el-button>
       </el-table-column>
     </el-table>
   </div>
@@ -25,39 +30,55 @@ export default {
     return {
       tableData: [
         {
-          title: '2016-05-02',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
+          department_name: '妇科'
         },
         {
-          title: '2016-05-04',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1517 弄'
+          department_name: '内科'
         },
         {
-          title: '2016-05-01',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1519 弄'
+          department_name: '康复科'
         },
         {
-          title: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄'
+          department_name: '外科'
         }
+
       ]
     }
   },
   methods: {
     handleClick(row) {
       console.log(row)
+    },
+    go() {
+      this.$router.push('/add_department')
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.addoffice {
-    width: 80%;
-  display: inline-block;
-}
+// .addoffice {
+//     width: 80%;
+//   display: inline-block;
+// }
+  #container{
+    width: 90%;
+    margin: 50px auto;
+  }
+  .headline{
+    width: 500px;
+    // margin-left: 30px;
+  }
+  .info{
+    width: 1000px;
+    // margin-top:20px;
+    // margin-left: 30px;
+  }
+  button{
+    margin: 0 50px;
+  }
+  #add_dep{
+    float: right;
+    margin-bottom: 30px;
+  }
 </style>

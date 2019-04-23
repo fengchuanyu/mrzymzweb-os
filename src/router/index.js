@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
 Vue.use(Router)
 
 /* Layout */
@@ -183,6 +182,12 @@ export const asyncRoutes = [
         component: () => import('@/views/feature/office'),
         name: 'office',
         meta: { title: 'office', icon: 'people', noCache: true }
+      },
+      {
+        path: 'add_department',
+        component: () => import('@/views/feature/add_department'),
+        name: 'add_department',
+        meta: { title: 'add_department', icon: 'people', noCache: true }
       }
     ]
   },
@@ -201,8 +206,10 @@ export const asyncRoutes = [
         name: 'userlist',
         meta: { title: 'userlist', icon: 'peoples', noCache: true }
       }
+
     ]
   },
+
   // {
   //   path: '/error',
   //   component: Layout,

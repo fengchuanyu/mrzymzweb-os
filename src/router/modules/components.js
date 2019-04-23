@@ -96,6 +96,7 @@ const componentsRouter = {
       name: 'DragKanbanDemo',
       meta: { title: 'dragKanban' }
     }
+
   ]
 }
 
