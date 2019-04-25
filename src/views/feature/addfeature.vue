@@ -1,23 +1,36 @@
 <template>
   <div id="container">
-    病种名称：<el-input v-model="input" placeholder="请输入内容" clearable class="headline" />
+    病种名称：<el-input
+      v-model="inputForm.input"
+      placeholder="请输入内容"
+      clearable
+      class="headline"
+    />
     <div style="margin: 20px 0;" />
-    <el-input v-model="textarea2" type="textarea" :autosize="{ minRows: 20, maxRows: 30}" placeholder="请输入内容" class="info" />
-    <el-button type="primary">保存</el-button>
+    <el-input
+      v-model="inputForm.textarea2"
+      type="textarea"
+      :autosize="{ minRows: 20, maxRows: 30}"
+      placeholder="请输入内容"
+      class="info"
+    />
+    <el-button type="primary" @click="add_fea()">保存</el-button>
   </div>
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 export default {
   data() {
     return {
-      input: '',
-      textarea2: ''
 
     }
   },
   methods: {
-
+    ...mapMutations(['add_fea'])
+  },
+  computed: {
+    ...mapState(['inputForm'])
   }
 }
 </script>

@@ -175,7 +175,8 @@ export const asyncRoutes = [
         path: 'addfeature',
         component: () => import('@/views/feature/addfeature'),
         name: 'addfeature',
-        meta: { title: 'addfeature', icon: 'people', noCache: true }
+        meta: { title: 'addfeature', icon: 'people', noCache: true },
+        hidden: true
       },
       {
         path: 'office',
@@ -187,7 +188,8 @@ export const asyncRoutes = [
         path: 'add_department',
         component: () => import('@/views/feature/add_department'),
         name: 'add_department',
-        meta: { title: 'add_department', icon: 'people', noCache: true }
+        meta: { title: '添加科室', icon: 'people', noCache: true },
+        hidden: true
       }
     ]
   },
