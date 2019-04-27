@@ -19,15 +19,7 @@
           <svg-icon icon-class="user" />
         </template>
       </el-input>
-      <el-select v-model="value" placeholder="请选择">
-        <el-option
-          v-for="item in options"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
-        />
-      </el-select>
-      <el-input v-model="input4" placeholder="工作地点">
+      <el-input v-model="input4" placeholder="医生所在诊室">
         <template slot="prepend">
           <svg-icon icon-class="password" />
         </template>
@@ -43,7 +35,7 @@
         </template>
       </el-input>
       <el-input v-model="textarea" type="textarea" :rows="2" placeholder="医生简介" />
-      <el-button type="primary">点击保存</el-button>
+      <el-button type="primary" @click="change">点击保存</el-button>
     </div>
   </div>
 </template>
@@ -56,28 +48,24 @@ export default {
       fileList: [
         // 上传图片
       ],
-      input3: '', // 医生姓名
+      input3: '', // 姓名
       input4: '', // 工作地点
       input5: '', // 医生职称
       input6: '', // 挂号金额
-      options: [
-        {
-          value: '选项1',
-          label: '妇科'
-        },
-        {
-          value: '选项2',
-          label: '内科'
-        },
-        {
-          value: '选项3',
-          label: '康复科'
-        }
-      ],
       value: ''
     }
   },
+  created() {
+    this.input3 = this.$route.query.id
+    this.input5 = this.$route.query.job
+    this.input6 = this.$route.query.money
+    this.textarea = this.$route.query.introduction
+    this.input4 = this.$route.query.department
+  },
   methods: {
+    change() {
+      console.log(name)
+    },
     handleRemove(file, fileList) {
       console.log(file, fileList)
     },

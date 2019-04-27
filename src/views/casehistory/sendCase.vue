@@ -1,6 +1,6 @@
 <template>
   <div class="sendcontent">
-    发布病例
+
     <!-- <div>
       <div class="sendcase">
         <el-input placeholder="病历名称" v-model="input3">
